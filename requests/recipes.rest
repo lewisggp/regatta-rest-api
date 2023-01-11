@@ -1,0 +1,72 @@
+@api = http://127.0.0.1:4000/api/recipes
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYmEzNzMwOWUzODc2YzY3ZTdmNmE4YSIsImlhdCI6MTY3MzE1MDcyNiwiZXhwIjoxNjczMjM3MTI2fQ.9Mv10jgOvhggqfQqGj1E8hd7XOMKZIcrl3XbPqTMtNo
+
+### Get recipes
+GET {{api}}
+Content-Type: application/json
+
+### Get recipe
+GET {{api}}/63ba418c8814451df7a1da3e
+Content-Type: application/json
+
+### Create recipe with id product
+POST {{api}}
+Content-Type: application/json
+x-access-token: {{token}}
+
+{
+  "name": "buttercream",
+  "description": "Crema de manteca",
+  "products": [
+    {
+      "_id": "63ba418c8814451df7a1da3e",
+      "quantity": 0.5,
+      "subtotal": 3
+    }
+  ],
+  "type": ["filling", "cream"],
+  "total": 3
+}
+
+### Create recipe with name product
+POST {{api}}
+Content-Type: application/json
+x-access-token: {{token}}
+
+{
+  "name": "buttercream",
+  "description": "Crema de manteca",
+  "products": [
+    {
+      "name": "arequipe",
+      "quantity": 0.5,
+      "subtotal": 3
+    }
+  ],
+  "type": ["filling", "cream"],
+  "total": 3
+}
+
+### Edit recipe
+PUT {{api}}/63ba592853a56eb2441c5c49
+Content-Type: application/json
+x-access-token: {{token}}
+
+{
+  "name": "buttercream",
+  "description": "Crema de manteca",
+  "products": [
+    {
+      "name": "arequipe",
+      "quantity": 0.5,
+      "subtotal": 4
+    }
+  ],
+  "type": ["filling", "cream"],
+  "total": 4
+}
+
+### Delete recipe
+DELETE {{api}}/63ba57a38091b6352d1037a1
+Content-Type: application/json
+x-access-token: {{token}}

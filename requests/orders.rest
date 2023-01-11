@@ -1,0 +1,127 @@
+@api = http://127.0.0.1:4000/api/orders
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYmEzNzMwOWUzODc2YzY3ZTdmNmE4YSIsImlhdCI6MTY3MzE1MDcyNiwiZXhwIjoxNjczMjM3MTI2fQ.9Mv10jgOvhggqfQqGj1E8hd7XOMKZIcrl3XbPqTMtNo
+
+### Get orders
+GET {{api}}
+Content-Type: application/json
+
+### Get order
+GET {{api}}/63bb085795b6c1298d1e145f
+Content-Type: application/json
+
+### Create order
+POST {{api}}
+Content-Type: application/json
+x-access-token: {{token}}
+
+{
+  "name": "Torta de arequipe",
+  "description": "Torta de vainilla rellena y cubierta con arequipe",
+  "images": ["imagen1", "imagen2"],
+  "specifications": {
+      "mix": [
+        {
+          "_id": "63ba418c8814451df7a1da3e",
+          "type": "Product",
+          "quantity": 100,
+          "subtotal": 1
+        }
+      ],
+      "filling": [
+        {
+          "_id": "63ba418c8814451df7a1da3e",
+          "type": "Product",
+          "quantity": 200,
+          "subtotal": 2
+        },
+        {
+          "_id": "63ba592853a56eb2441c5c49",
+          "type": "Recipe",
+          "quantity": 100,
+          "subtotal": 4
+        }
+      ],
+      "cream": [
+        {
+          "_id": "63ba592853a56eb2441c5c49",
+          "type": "Recipe",
+          "quantity": 150,
+          "subtotal": 6
+        }
+      ],
+      "decoration": [
+        {
+          "_id": "63ba418c8814451df7a1da3e",
+          "type": "Product",
+          "quantity": 100,
+          "subtotal": 2
+        }
+      ]
+  },
+  "shape": "63bac66e0879b3fb612e00fb",
+  "weight": 200,
+  "popularity": 1,
+  "active": true,
+  "total": 10
+}
+
+### Edit order
+PUT {{api}}/63bb085795b6c1298d1e145f
+Content-Type: application/json
+x-access-token: {{token}}
+
+{
+  "name": "Torta de arequipee",
+  "description": "Torta de vainilla rellena y cubierta con arequipe",
+  "images": ["imagen1", "imagen2"],
+  "specifications": {
+      "mix": [
+        {
+          "_id": "63ba418c8814451df7a1da3e",
+          "type": "Product",
+          "quantity": 100,
+          "subtotal": 1
+        }
+      ],
+      "filling": [
+        {
+          "_id": "63ba418c8814451df7a1da3e",
+          "type": "Product",
+          "quantity": 200,
+          "subtotal": 2
+        },
+        {
+          "_id": "63ba592853a56eb2441c5c49",
+          "type": "Recipe",
+          "quantity": 100,
+          "subtotal": 4
+        }
+      ],
+      "cream": [
+        {
+          "_id": "63ba592853a56eb2441c5c49",
+          "type": "Recipe",
+          "quantity": 150,
+          "subtotal": 6
+        }
+      ],
+      "decoration": [
+        {
+          "_id": "63ba418c8814451df7a1da3e",
+          "type": "Product",
+          "quantity": 100,
+          "subtotal": 2
+        }
+      ]
+  },
+  "shape": "63bac66e0879b3fb612e00fb",
+  "weight": 250,
+  "popularity": 2,
+  "active": false,
+  "total": 100
+}
+
+### Delete order
+DELETE {{api}}/63bb085795b6c1298d1e145f
+Content-Type: application/json
+x-access-token: {{token}}

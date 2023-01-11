@@ -1,0 +1,14 @@
+@api = http://127.0.0.1:4000/api/users
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYmEzNzMwOWUzODc2YzY3ZTdmNmE4YSIsImlhdCI6MTY3MzE1MDcyNiwiZXhwIjoxNjczMjM3MTI2fQ.9Mv10jgOvhggqfQqGj1E8hd7XOMKZIcrl3XbPqTMtNo
+
+### Admin create new user
+POST {{api}}
+Content-Type: application/json
+x-access-token: {{token}}
+
+{
+  "username": "admin2",
+  "email": "admin2@localhost.local",
+  "password": "12345",
+  "roles": ["admin", "moderator"]
+}

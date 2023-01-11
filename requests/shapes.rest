@@ -1,0 +1,45 @@
+@api = http://127.0.0.1:4000/api/shapes
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYmEzNzMwOWUzODc2YzY3ZTdmNmE4YSIsImlhdCI6MTY3MzE1MDcyNiwiZXhwIjoxNjczMjM3MTI2fQ.9Mv10jgOvhggqfQqGj1E8hd7XOMKZIcrl3XbPqTMtNo
+
+### Get shapes
+GET {{api}}
+Content-Type: application/json
+
+### Get shape
+GET {{api}}/63bac66e0879b3fb612e00fb
+Content-Type: application/json
+
+### Create shape
+POST {{api}}
+Content-Type: application/json
+x-access-token: {{token}}
+
+{
+  "name": "Circular",
+  "width": "10",
+  "depth": "10",
+  "height": "2",
+  "minRecipe": "1",
+  "maxRecipe": "2",
+  "filling": "100"
+}
+
+### Edit shape
+PUT {{api}}/63bac66e0879b3fb612e00fb
+Content-Type: application/json
+x-access-token: {{token}}
+
+{
+  "name": "Circular",
+  "width": "10",
+  "depth": "10",
+  "height": "2",
+  "minRecipe": "1",
+  "maxRecipe": "3",
+  "filling": "150"
+}
+
+### Delete shape
+DELETE {{api}}/63bac66e0879b3fb612e00fb
+Content-Type: application/json
+x-access-token: {{token}}

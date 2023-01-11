@@ -1,0 +1,21 @@
+@api = http://127.0.0.1:4000/api/auth
+
+### Signin
+POST {{api}}/signin
+Content-Type: application/json
+
+{
+  "email": "admin@localhost",
+  "password": "password"
+}
+
+### Signout
+POST {{api}}/signup
+Content-Type: application/json
+
+{
+  "username": "lewis",
+  "email": "lewis@localhost.local",
+  "password": "12345",
+  "roles": ["admin", "moderator"]
+}
